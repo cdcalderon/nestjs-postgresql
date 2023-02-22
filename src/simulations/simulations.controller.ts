@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { Simulation } from 'src/models/simulation.model';
+import { Simulation } from 'src/simulations/models/simulation.model';
 import { SimulationsService } from './simulations.service';
 
 @Controller('api/simulations')

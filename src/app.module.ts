@@ -1,11 +1,7 @@
 import { Module } from '@nestjs/common';
-import { SimulationModule } from './simulation/simulation.module';
-import { SimulationsController } from './simulations/simulations.controller';
-import { SimulationsService } from './simulations/simulations.service';
+import { SimulationsModule } from './simulations/simulations.module';
 
 @Module({
-  imports: [SimulationModule],
-  controllers: [SimulationsController],
-  providers: [SimulationsService],
+  imports: [SimulationsModule],
 })
 export class AppModule {}
