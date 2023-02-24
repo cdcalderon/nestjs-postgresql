@@ -1,9 +1,8 @@
-/* eslint-disable prettier/prettier */
 export interface Simulation {
-  id: string;
+	id: string;
 }
 
 export enum SimulationStatus {
-  COMPLETE = 'COMPLETE',
-  IN_PROGRESS = 'IN_PROGRESS',
+	COMPLETE = 'COMPLETE',
+	IN_PROGRESS = 'IN_PROGRESS',
 }
