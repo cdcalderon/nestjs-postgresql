@@ -1,21 +1,23 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Simulation } from 'src/entity/simulation.entity';
-import { SimulationRepository } from 'src/repositories/simulation.repository';
-import { FindOneOptions } from 'typeorm';
+import { SimulationRepository } from 'src/simulations/simulation.repository';
+import { FindOneOptions, getRepository, Repository } from 'typeorm';
+import { Simulation } from './simulation.entity';
 
 @Injectable()
 export class SimulationsService {
 	constructor(
-		@InjectRepository(SimulationRepository)
-		private simulationRepository: SimulationRepository,
+		@InjectRepository(Simulation)
+		private simulationRepository: Repository<Simulation>,
 	) {}
 
 	async getSimulationById(id: string): Promise<Simulation> {
-		const options: FindOneOptions<Simulation> = {
+		// const options: FindOneOptions<Simulation> = {
+		// 	where: { id: id },
+		// };
+		const simulation = await this.simulationRepository.findOne({
 			where: { id },
-		};
-		const simulation = await this.simulationRepository.findOne(options);
+		});
 
 		if (!simulation) {
 			throw new NotFoundException(`Simulation with ID ${id} not found`);

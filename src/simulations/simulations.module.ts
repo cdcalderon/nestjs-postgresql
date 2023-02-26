@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SimulationRepository } from 'src/repositories/simulation.repository';
+import { SimulationRepository } from 'src/simulations/simulation.repository';
+import { Simulation } from './simulation.entity';
 import { SimulationsController } from './simulations.controller';
 import { SimulationsService } from './simulations.service';
 
 @Module({
-	imports: [TypeOrmModule.forFeature([SimulationRepository])],
+	imports: [TypeOrmModule.forFeature([Simulation, SimulationRepository])],
 	controllers: [SimulationsController],
 	providers: [SimulationsService],
 })
