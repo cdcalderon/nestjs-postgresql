@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { Simulation } from 'src/simulations/models/simulation.model';
+import { Simulation } from 'src/entity/simulation.entity';
 
 @Injectable()
 export class SimulationsService {
-  getAllSimulations(): Simulation[] {
-    return new Array<Simulation>();
-  }
+	getAllSimulations(): Simulation[] {
+		return new Array<Simulation>();
+	}
 }
